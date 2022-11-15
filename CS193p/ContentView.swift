@@ -10,16 +10,14 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         
-        VStack {
+        ZStack {
+            RoundedRectangle(cornerRadius: 25)
+                .stroke(.red, lineWidth: 2)
+            .padding(.horizontal)
             
-            Text("Hello, world!")
-                .padding()
-            
-            Text("This is a test!")
-            
-           
+            Text("Hello")
         }
-        
+       
     }
 }
 
