@@ -79,7 +79,7 @@ struct CardView: View {
             
             if isFaceUp {
                 shape.fill(.white)
-                shape.stroke(lineWidth: 3)
+                shape.strokeBorder(lineWidth: 3)
                 Text(content).font(.largeTitle)
             } else {
                 shape.fill(.red)
