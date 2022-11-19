@@ -15,35 +15,46 @@ struct ContentView: View {
     
    
     var add: some View {
-        Button {emojiCount += 1} label: {
+        Button {
+            if (emojiCount < emojis.count) {
+                emojiCount += 1
+            }
+        } label: {
                 Image(systemName: "plus.circle")
             }
     }
     
     var remove: some View {
-        Button {emojiCount += 1} label: {
+        Button {
+            if (emojiCount > 1) {
+                emojiCount -= 1
+            }
+        } label: {
                 Image(systemName: "minus.circle")
             }
     }
     
     var body: some View {
         VStack {
-            HStack {
-                ForEach(emojis[0..<emojiCount], id: \.self) {emoji in
-                    CardView(content: emoji)
+                HStack {
+                    ForEach(emojis[0..<emojiCount], id: \.self) {emoji in
+                        CardView(content: emoji)
+                    }
                 }
-            }
-            .padding(.horizontal)
-            .foregroundColor(.red)
+                .padding(.horizontal)
+                .foregroundColor(.red)
+                
+                Spacer()
             
-        HStack {
-            remove
-            Spacer()
-            add
-            }
-        .padding(.horizontal)
+                HStack {
+                        remove
+                        Spacer()
+                        add
+                        }
+                        .font(.largeTitle)
+                        .padding(.horizontal)
+                }
         }
-    }
 }
 
 struct ContentView_Previews: PreviewProvider {
